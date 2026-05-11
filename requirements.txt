@@ -6,3 +6,4 @@ dotenv
 pycaret.clustering
 plotly.express 
 pandas
+python==3.11
