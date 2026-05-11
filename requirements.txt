@@ -1,0 +1,9 @@
+openai
+python-dotenv
+qdrant-client
+streamlit
+json
+dotenv
+pycaret.clustering
+plotly.express 
+pandas
