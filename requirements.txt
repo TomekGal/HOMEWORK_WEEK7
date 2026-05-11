@@ -1,4 +1,4 @@
-python==3.11
+python==3.11.15
 openai==2.14.0
 python-dotenv==1.2.1
 streamlit==1.55.0
