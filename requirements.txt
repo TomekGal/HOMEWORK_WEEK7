@@ -1,9 +1,6 @@
-openai
-python-dotenv
-streamlit
-json
-dotenv
-pycaret.clustering
-plotly.express 
+openai==2.36.0
+python-dotenv==1.2.2
+streamlit==1.57.0
+pycaret==3.3.2
+plotly
 pandas
-python==3.11
