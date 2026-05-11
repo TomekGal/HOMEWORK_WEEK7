@@ -5,7 +5,7 @@ from openai import OpenAI
 from dotenv import dotenv_values
 from pycaret.clustering import setup, create_model,save_model,assign_model, predict_model
 import plotly.express as px
-from qdrant_client import QdrantClient
+
 
 env=dotenv_values(".env")
 
@@ -28,14 +28,6 @@ if not st.session_state.get("openai_api_key"):
 if not st.session_state.get("openai_api_key"):
     st.stop()
 
-@st.cache_resource
-def get_qdrant_client():
-    return QdrantClient(
-    url=env["QDRANT_URL"], 
-    api_key=env["QDRANT_API_KEY"],
-    check_compatibility=False
-)
-
 @st.cache_data
 def get_all_participants():
     all_df=pd.read_csv(DATA, sep=';')
@@ -48,12 +40,9 @@ setup(source_df,session_id=7)
 # Tworzenie modelu
 @st.cache_data
 def get_model():
-    
-   
     kmeans=create_model('kmeans')
     save_model(kmeans,'welcome_survey_pipeline',verbose=False)
     return kmeans
-
 
 kmeans=get_model()
 df_with_clusters=assign_model(kmeans)
